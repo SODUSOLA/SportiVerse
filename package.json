@@ -1,0 +1,51 @@
+{
+  "name": "sportiverse",
+  "version": "1.0.0",
+  "description": "Full-stack real-time sports management platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "sports",
+    "football",
+    "livescore",
+    "fixtures",
+    "match schedule",
+    "team stats",
+    "player stats",
+    "injury reports",
+    "match venue",
+    "sports automation",
+    "admin dashboard",
+    "live updates",
+    "sports management",
+    "match registration",
+    "event tracking",
+    "scoreboard",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "socket.io",
+    "REST API",
+    "backend service"
+  ],
+  "author": "Odusola Oluwasemilore",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.5",
+    "nodemailer": "^7.0.5",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0"
+  }
+}
