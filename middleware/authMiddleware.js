@@ -1,9 +1,7 @@
-// authMiddleware.js
 import jwt from 'jsonwebtoken';
-// import User from '../models/userModel.js';
+
 
 export default function authMiddleware(req, res, next) {
-    // Check if JWT_SECRET is configured
     if (!process.env.JWT_SECRET) {
         return res.status(500).json({ error: 'Server configuration error' });
     }
