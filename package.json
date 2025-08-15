@@ -31,6 +31,7 @@
     "REST API",
     "backend service"
   ],
+  "type": "module",
   "author": "Odusola Oluwasemilore",
   "license": "MIT",
   "dependencies": {
