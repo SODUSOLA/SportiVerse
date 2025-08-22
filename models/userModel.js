@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin', 'super_admin'],
         default: 'user',
     },
-    }, 
+    otp: { type: String },
+    otpExpires: { type: Date },
+    isVerified: { type: Boolean, default: false },
+    isApproved: { type: Boolean, default: false },
+    },
     { timestamps: true});
 
 const User = mongoose.model('User', userSchema)

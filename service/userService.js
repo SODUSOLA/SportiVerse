@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/userModel.js";
 
 export const signUpUser = async (userData) => {
-    const { username, email, password, role } = userData;
+    const { username, email, password, role, otp, otpExpires, isApproved } = userData;
 
     const userExists = await User.findOne({ email });
     if (userExists) {
@@ -17,6 +17,9 @@ export const signUpUser = async (userData) => {
         email,
         password: hashedPassword,
         role,
+        otp,
+        otpExpires,
+        isApproved
     });
 
     const userWithoutPassword = newUser.toObject();
