@@ -4,10 +4,10 @@ import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-// Public — signup
+// Public —> signup
 router.post('/register', registerUser);
 
-// Private — get logged-in user details
+// Private —> get logged-in user details
 router.get('/me', authMiddleware, getCurrentUser);
 
 export default router;
