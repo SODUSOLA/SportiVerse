@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema({
     otpExpires: { type: Date },
     isVerified: { type: Boolean, default: false },
     isApproved: { type: Boolean, default: false },
+    // Admin specific fields
+    inviteCode: { type: String },
+    inviteCodeExpires: { type: Date },
     },
     { timestamps: true});
 

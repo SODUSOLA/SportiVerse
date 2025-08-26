@@ -35,9 +35,7 @@ This MVP currently focuses on **authentication & role-based access control** wit
 
 ### Security  
 - Environment variables managed via `.env`  
-- Secrets stored securely (`JWT_SECRET`, `ADMIN_SECRET`, `EMAIL_USER`, `EMAIL_PASS`)  
 - Passwords hashed before saving  
-
 ---
 
 ## Project Structure (so far)  
@@ -47,16 +45,24 @@ SportiVerse/
 │── config/
 │ └── db.js
 │── controllers/
+│ └── adminController.js 
 │ └── authController.js 
+│ └── playerController.js 
+│ └── teamController.js 
 │ └── userController.js 
 │── middleware/
 │ └── authMiddleware.js
 │ └── roleMiddleware.js
 │── models/
+│ └── playerModel.js
+│ └── teamModel.js
 │ └── userModel.js
 │── routes/
-│ └── index.js
+│ └── adminRoutes.js
 │ └── authRoutes.js
+│ └── index.js
+│ └── playerRoutes.js
+│ └── teamRoutes.js
 │ └── userRoutes.js
 │── service/
 │ └── userService.js
@@ -67,7 +73,6 @@ SportiVerse/
 │── .env
 │── package.json
 ```
-
 ---
 
 ## API Endpoints 
@@ -82,7 +87,6 @@ SportiVerse/
   "role": "user"
 }
 ```
-
 ---
 
 ### **Verify OTP**
@@ -94,7 +98,6 @@ SportiVerse/
   "otp": "1234"
 }
 ```
-
 ---
 
 ### **Resend OTP**
@@ -105,7 +108,6 @@ SportiVerse/
   "email": "john@example.com"
 }
 ```
-
 ---
 
 ### **Login**
@@ -117,7 +119,6 @@ SportiVerse/
   "password": "securePass123"
 }
 ```
-
 ---
 
 ### **Logout**
@@ -125,5 +126,47 @@ SportiVerse/
 ```json
 {
 "Authorization" : "BEARER {token}" 
+}
+```
+---
+
+### **Register Teams**
+`POST /api/teams`
+```json
+{
+  "name": "Arsenal",
+  "code": "ARS",
+  "coach": "Mikel Arteta"
+}
+```
+---
+
+### **Register Player**
+`POST /api/players`
+```json
+{
+  "name": "Leandro Trossard",
+  "position": "Foward",
+  "number": 19,
+  "nationality": "Belgium",
+  "teamName": "Arsenal"
+}
+```
+#### **Response Body**
+
+```json
+{
+    "message": "Player created and assigned to team successfully",
+    "player": {
+        "name": "Leandro Trossard",
+        "position": "Foward",
+        "number": 19,
+        "nationality": "Belgium",
+        "team": "Arsenal",
+        "_id": "68ad95fd661f72b11d7ff679",
+        "createdAt": "2025-08-26T11:09:49.089Z",
+        "updatedAt": "2025-08-26T11:09:49.089Z",
+        "__v": 0
+    }
 }
 ```

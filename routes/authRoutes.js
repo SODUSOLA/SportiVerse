@@ -3,6 +3,7 @@ import { loginUser, logoutUser } from '../controllers/authController.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 import { verifyRole } from '../middleware/roleMiddleware.js';
 import { resendOtp, verifyOtp } from "../controllers/userController.js";
+
 const router = express.Router();
 
 // Public routes

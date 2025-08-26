@@ -13,7 +13,9 @@ export const registerUser = async (req, res) => {
         }
 
         // Default role = user
-        if (!role) role = "user";
+        if (!role) {
+            role = "user";
+        }
 
         // SUPERADMIN signup 
         if (role === "superadmin") {
@@ -92,14 +94,15 @@ export const resendOtp = async (req, res) => {
         const { email } = req.body;
 
         if (!email) {
-        return res.status(400).json({ error: "Email is required" });
+            return res.status(400).json({ error: "Email is required" });
         }
 
         const user = await User.findOne({ email });
-        if (!user) return res.status(404).json({ error: "User not found" });
-
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
         if (user.isVerified) {
-        return res.status(400).json({ error: "User already verified" });
+            return res.status(400).json({ error: "User already verified" });
         }
         if (user.otpExpires && user.otpExpires > Date.now()) {
             return res.status(429).json({
